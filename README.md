@@ -1,6 +1,6 @@
 # News Reader
 
-This was created as part of a take home challenge to create a news reader. For more details on the challenge [see here.](https://mod4.turing.edu/projects/take_home/take_home_fe)
+This was created as part of a take home challenge to create a news reader. For more details on the challenge [see here.](https://mod4.turing.edu/projects/take_home/take_home_fe). This project does not a deployment because it requires an API Key that only works on `localhost`
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
@@ -13,10 +13,6 @@ This was created as part of a take home challenge to create a news reader. For m
 ## Screenshots
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-## Demo
-
-https://f2pdb.vercel.app/
 
 ## Features
 
@@ -33,6 +29,12 @@ git clone git@github.com:KojinKuro/news-reader.git
 cd news-reader
 npm install
 npm run dev
+```
+
+Note: This project requires you to have an API key for the News API. You can learn how to do this [here](https://newsapi.org/docs/get-started). Once you obtain a key, create an `.env` file in the root folder with the following contents.
+
+```
+VITE_API_KEY=yourapikey
 ```
 
 The server should be running locally on: `localhost:5173`
