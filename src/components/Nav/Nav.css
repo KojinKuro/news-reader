@@ -2,5 +2,11 @@ nav {
   position: sticky;
   top: 0;
 
-  background-color: purple;
+  background-color: blueviolet;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
 }

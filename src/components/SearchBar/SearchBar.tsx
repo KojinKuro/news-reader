@@ -9,15 +9,14 @@ export default function SearchBar({
   setInput: Dispatch<SetStateAction<string>>;
 }) {
   return (
-    <>
-      <label>
-        <div>Search Bar</div>
-        <input
-          type="text"
-          onChange={(e) => setInput(e.target.value)}
-          value={input}
-        />
-      </label>
-    </>
+    <label className="search-bar">
+      <div>Article Filter</div>
+      <input
+        type="text"
+        onChange={(e) => setInput(e.target.value)}
+        value={input}
+        placeholder="ex: fortnite ..."
+      />
+    </label>
   );
 }

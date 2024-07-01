@@ -1,14 +1,33 @@
-.news {
+.news-grid-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
 }
 
-.article-card {
-  display: grid;
-  grid-template-columns: 200px 1fr;
+.news-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 40px;
+
+  max-width: 1200px;
 }
 
-.article-selected {
-  background-color: red;
+@media screen and (width >= 800px) {
+  .article-card {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    gap: 30px;
+  }
+}
+
+@media screen and (width < 800px) {
+  .article-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-grid {
+    gap: 75px;
+  }
 }
