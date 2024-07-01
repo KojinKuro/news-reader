@@ -1,11 +1,23 @@
-.news-detail {
-  flex: 3;
+.news-detail-container {
+}
 
+.news-detail {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  padding: 20px;
+}
+
+.news-detail-info {
+  display: flex;
+
+  & > div:not(:last-child)::after {
+    padding: 0px 10px;
+    content: "/";
+  }
 }
 
 .news-banner {
-  height: 200px;
+  height: 300px;
 }

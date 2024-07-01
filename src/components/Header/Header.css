@@ -4,6 +4,10 @@ header {
 
   padding: 30px 10px;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   h1,
   p {
     margin: 0;

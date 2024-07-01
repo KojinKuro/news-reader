@@ -18,32 +18,31 @@ export default function NewsDetail() {
 
   const article = articles[parsedId];
   return (
-    <div className="news-detail">
+    <div className="news-detail-container">
       {article?.urlToImage && (
         <div className="image-container news-banner">
           <img src={article.urlToImage} />
         </div>
       )}
+      <div className="news-detail">
+        <h1>{article?.title}</h1>
 
-      <Link to="/">
-        <button>Return home</button>
-      </Link>
+        <div className="news-detail-info">
+          {article?.source.name && <div>{article.source.name}</div>}
+          {article?.author && <div>by {article.author}</div>}
+          {article?.publishedAt && (
+            <div>published at: {article.publishedAt}</div>
+          )}
+        </div>
 
-      <h1>{article?.title}</h1>
+        {article?.content && <div>{article.content}</div>}
 
-      <div>
-        {article?.source.name && <div>{article.source.name}</div>}
-        {article?.author && <div>by {article.author}</div>}
-        {article?.publishedAt && <div>published at: {article.publishedAt}</div>}
+        {article?.url && (
+          <Link to={article.url}>
+            <button>See full article</button>
+          </Link>
+        )}
       </div>
-
-      {article?.content && <div>{article.content}</div>}
-
-      {article?.url && (
-        <Link to={article.url}>
-          <button>See full article</button>
-        </Link>
-      )}
     </div>
   );
 }
