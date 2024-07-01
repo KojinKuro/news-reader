@@ -35,12 +35,6 @@ npm install
 npm run dev
 ```
 
-Note: This project requires you to have an API key for the News API. You can learn how to do this [here](https://newsapi.org/docs/get-started). Once you obtain a key, create an `.env` file in the root folder with the following contents.
-
-```
-VITE_API_KEY=yourapikey
-```
-
 The server should be running locally on: `localhost:5173`
 
 ## Context

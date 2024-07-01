@@ -2,8 +2,12 @@
 import { APIResponse } from "../types/type";
 
 export function getNews(page: number = 1): Promise<APIResponse> {
+  // return new Promise((resolve) => {
+  //   resolve(mockArticles);
+  // });
+
   const query = encodeURIComponent('videogame OR "video game"');
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiKey = "a2b3955d45374009bb40a55c7575efa5";
   return fetch(
     `https://newsapi.org/v2/everything?q=${query}&page=${page}&sortBy=publishedAt&apiKey=${apiKey}`
   ).then((res) => {
@@ -13,8 +17,4 @@ export function getNews(page: number = 1): Promise<APIResponse> {
       return res.json();
     }
   });
-
-  // return new Promise((resolve) => {
-  //   resolve(mockArticles);
-  // });
 }
