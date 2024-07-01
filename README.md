@@ -12,7 +12,7 @@ This was created as part of a take home challenge to create a news reader. For m
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot 2024-06-30 at 9 05 50 PM](https://github.com/KojinKuro/news-reader/assets/11234292/95d06268-43f9-41d6-ae0d-fa9340c656f0)
 
 ## Features
 
