@@ -1,6 +1,3 @@
-.news-detail-container {
-}
-
 .news-detail {
   display: flex;
   flex-direction: column;
@@ -9,15 +6,21 @@
   padding: 20px;
 }
 
-.news-detail-info {
-  display: flex;
-
-  & > div:not(:last-child)::after {
-    padding: 0px 10px;
-    content: "/";
-  }
-}
-
 .news-banner {
   height: 300px;
 }
+
+@media screen and (width >= 800px) {
+  .news-detail-info {
+    display: flex;
+
+    & > div:not(:last-child)::after {
+      padding: 0px 10px;
+      content: "/";
+    }
+  }
+}
+
+/*
+@media screen and (width < 800px) {
+} */
