@@ -1,48 +1,29 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
-import Nav from "../../components/Nav/Nav";
-import { Article } from "../../types/type";
-import "./News.css";
+import { useContext } from "react";
+import { GlobalContext } from "../../components/App/App";
+import NewsGrid from "../../components/NewsGrid/NewsGrid";
+import { getNews } from "../../util/apiCalls";
 
-export default function News({ articles }: { articles: Article[] }) {
-  const navigate = useNavigate();
-  const [input, setInput] = useState("");
+export default function News() {
+  const global = useContext(GlobalContext);
 
-  console.log(articles);
+  const articles = global?.state.articles ? global.state.articles : [];
 
-  const filteredArticles = articles.filter((article) => {
-    if (!article.title) return false;
+  const addArticles = () => {
+    if (!global?.state) return;
 
-    return article.title
-      .toLocaleLowerCase()
-      .includes(input.toLocaleLowerCase());
-  });
-
-  const articleElements = filteredArticles.map((article, index) => {
-    return (
-      <div
-        key={index}
-        className={`article-card`}
-        onClick={() => {
-          navigate(`/${index}`);
-        }}
-      >
-        <div className="image-container">
-          <img src={article.urlToImage ? article.urlToImage : ""} />
-        </div>
-        <div>
-          <h1>{article.title}</h1>
-          <div>{article.publishedAt}</div>
-          <div>{article.description}</div>
-        </div>
-      </div>
-    );
-  });
+    getNews(global.state.nextPage).then((data) => {
+      const { articles, totalResults } = data;
+      global.dispatch({
+        type: "ADD_ARTICLES",
+        payload: { articles, totalResults },
+      });
+    });
+  };
 
   return (
     <>
-      <Nav input={input} setInput={setInput} />
-      <div className="news">{articleElements}</div>
+      <NewsGrid articles={articles} />
+      <button onClick={() => addArticles()}>Load More</button>
     </>
   );
 }

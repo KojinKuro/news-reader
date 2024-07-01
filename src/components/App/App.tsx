@@ -36,7 +36,7 @@ function reducer(state: State, action: Action): State {
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addArticles = () => {
+  useEffect(() => {
     getNews(state.nextPage).then((data) => {
       const { articles, totalResults } = data;
       dispatch({
@@ -44,10 +44,6 @@ function App() {
         payload: { articles, totalResults },
       });
     });
-  };
-
-  useEffect(() => {
-    addArticles();
   }, []);
 
   return (
@@ -56,15 +52,7 @@ function App() {
       <main>
         <ErrorBoundary FallbackComponent={ErrorComponent}>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <News articles={state.articles} />
-                  <button onClick={() => addArticles()}>Load More</button>
-                </>
-              }
-            />
+            <Route path="/" element={<News />} />
             <Route path="/:id" element={<NewsDetail />} />
             <Route path="*" element={<Missing />} />
           </Routes>
