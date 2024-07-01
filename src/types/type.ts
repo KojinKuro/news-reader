@@ -3,15 +3,15 @@ import { Dispatch } from "react";
 export type Article = {
   source: {
     id: number | string | null;
-    name: string;
+    name: string | null;
   };
   author: string | null;
-  title: string;
-  description: string;
-  url: string;
+  title: string | null;
+  description: string | null;
+  url: string | null;
   urlToImage: string | null;
-  publishedAt: string;
-  content: string;
+  publishedAt: string | null;
+  content: string | null;
 };
 
 export type GlobalContextValue = {
@@ -20,16 +20,17 @@ export type GlobalContextValue = {
 };
 
 export type State = {
-  news: {
-    status: string;
-    totalResults: number;
-    articles: Article[];
-  };
-  topics: string[];
-  curArticle: Article | null;
+  articles: Article[];
+  nextPage: number;
 };
 
-export type Action =
-  | { type: "ADD_TOPIC"; payload: string }
-  | { type: "REMOVE_TOPIC"; payload: number }
-  | { type: "SET_CUR_ARTICLE"; payload: number };
+export type Action = {
+  type: "ADD_ARTICLES";
+  payload: { articles: Article[]; totalResults: number };
+};
+
+export type APIResponse = {
+  status: string;
+  totalResults: number;
+  articles: Article[];
+};

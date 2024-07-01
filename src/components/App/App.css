@@ -43,22 +43,10 @@
 
 #root {
   display: flex;
+  flex-direction: column;
 }
 
 .news-display {
   display: flex;
   flex: 1;
-}
-
-.sidebar {
-  width: 300px;
-}
-
-.topic-card {
-  display: flex;
-  justify-content: space-between;
-}
-
-.input-bar {
-  display: flex;
 }
